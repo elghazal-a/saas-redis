@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:0.10-onbuild
 
 COPY . /var/www
 RUN cd /var/www; npm install; bower install;
