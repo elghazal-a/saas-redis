@@ -1,5 +1,5 @@
 FROM node:0.10-onbuild
-
+RUN npm install -g bower
 COPY . /var/www
 RUN cd /var/www; npm install; bower install;
 
