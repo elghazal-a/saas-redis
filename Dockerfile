@@ -3,7 +3,8 @@ FROM node:0.10-onbuild
 COPY . /var/www
 
 RUN npm install -g bower
-RUN cd /var/www; npm install; bower install;
+RUN cd /var/www; npm install;
+RUN cd /var/www; bower install --allow-root;
 
 EXPOSE  9000
 
