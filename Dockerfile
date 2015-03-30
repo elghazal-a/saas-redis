@@ -1,6 +1,8 @@
 FROM node:0.10-onbuild
-RUN npm install -g bower
+
 COPY . /var/www
+
+RUN npm install -g bower
 RUN cd /var/www; npm install; bower install;
 
 EXPOSE  9000
