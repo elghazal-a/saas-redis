@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('nvd3App')
-  .controller('MainCtrl', function ($scope, $http) {
+angular.module('saasApp')
+  .controller('ListCtrl', function ($scope, $http) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {

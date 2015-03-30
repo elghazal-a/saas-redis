@@ -1,10 +1,10 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./thing.controller');
+var controller = require('./instance.controller');
 
 var router = express.Router();
 
-router.get('/', controller.index);
+router.post('/new', controller.new);
 
 module.exports = router;
