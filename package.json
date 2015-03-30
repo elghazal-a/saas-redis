@@ -1,0 +1,26 @@
+{
+  "name": "saas-redis",
+  "version": "1.0.0",
+  "description": "Spawning Redis instance as software as a service",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geniousphp/saas-redis.git"
+  },
+  "keywords": [
+    "node.js",
+    "redis",
+    "docker",
+    "saas",
+    "cloud"
+  ],
+  "author": "geniousphp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geniousphp/saas-redis/issues"
+  },
+  "homepage": "https://github.com/geniousphp/saas-redis"
+}
