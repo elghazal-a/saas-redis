@@ -1,9 +1,7 @@
 FROM node:latest
 
 COPY . /var/www
-RUN cd /var/www;
-RUN npm install;
-RUN bower install;
+RUN cd /var/www; npm install; bower install;
 
 EXPOSE  9000
 
