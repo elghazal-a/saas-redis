@@ -25,7 +25,7 @@ exports.new = function(req, res) {
   var port = spawnRedisInstance(req.body.name);
   console.log(port);
   res.json({
-    ip: ip
+    ip: ip,
     port: port
   });
 };
