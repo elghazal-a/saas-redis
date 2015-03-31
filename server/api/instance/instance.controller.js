@@ -9,13 +9,15 @@ function spawnRedisInstance(name){
   var container_id = exec(cmd_runRedis);
   console.log(container_id);
   var cmd_inspect = docker_path + 'docker inspect ' + container_id;
-  var json_inspec = exec(cmd_inspect);
+  var json_inspect = exec(cmd_inspect);
+  console.log(json_inspect);
   try{
-    json_inspec = JSON.parse(json_inspec);
+    json_inspect = JSON.parse(json_inspect);
+    console.log(json_inspect);
   }catch(err){
     throw err;
   }
-  var port = json_inspec["NetworkSettings"]["Ports"]["11211/tcp"][0].HostPort;
+  var port = json_inspect["NetworkSettings"]["Ports"]["11211/tcp"][0].HostPort;
   return port;
 };
 
