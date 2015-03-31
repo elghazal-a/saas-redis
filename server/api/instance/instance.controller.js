@@ -5,10 +5,13 @@ var exec = require('exec-sync');
 
 function spawnRedisInstance(name){
   name = 'redis_' + name;
+  console.log(name);
   var docker_path = '/usr/bin/';
   var cmd_runRedis = docker_path + 'docker run -d -P --name="' + name + '" redis';
   var container_id = exec(cmd_runRedis);
+  console.log(container_id);
   var cmd_inspect = docker_path + 'docker inspect ' + container_id;
+  console.log(cmd_inspect);
   var json_inspect = exec(cmd_inspect);
   try{
     json_inspect = JSON.parse(json_inspect);
