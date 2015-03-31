@@ -11,8 +11,8 @@ function spawnRedisInstance(name){
   var container_id = exec(cmd_runRedis);
   console.log(container_id);
   var cmd_inspect = docker_path + 'docker inspect ' + container_id;
-  console.log(cmd_inspect);
   var json_inspect = exec(cmd_inspect);
+  console.log(json_inspect);
   try{
     json_inspect = JSON.parse(json_inspect);
   }catch(err){
