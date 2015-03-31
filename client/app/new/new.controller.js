@@ -8,8 +8,9 @@ angular.module('saasApp')
 	    	name: instance.name
 	    })
 	    .success(function(instance) {
-	    	alert("The redis instance has been created. IP: " + instance.ip + " Port: " + instance.port);
+	    	console.log("Success");
 	      	$scope.instance = instance;
+	    	alert("The redis instance has been created. IP: " + instance.ip + " Port: " + instance.port);
 	    });
   	}
 
