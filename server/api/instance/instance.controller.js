@@ -34,6 +34,6 @@ exports.new = function(req, res) {
 };
 
 exports.list = function(req, res) {
-  var instances = getRedisInstance();
+  var instances = getRedisInstances();
   res.json(instances);
 };
