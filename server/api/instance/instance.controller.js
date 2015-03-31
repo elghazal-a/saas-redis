@@ -4,6 +4,7 @@ var _ = require('lodash');
 var exec = require('exec-sync');
 
 function spawnRedisInstance(name){
+  name = redis + '_' name;
   var docker_path = '/usr/bin/';
   var cmd_runRedis = docker_path + 'docker run -d -P --name="' + name + '" redis';
   var container_id = exec(cmd_runRedis);
@@ -23,9 +24,7 @@ function getRedisInstances(){
   var cmd_nameInstances = docker_path + 'docker ps | grep "redis" | awk \'{print $11}\'';
   var cmd_portInstances = docker_path + 'docker ps | grep "redis" | awk \'{print $10}\'';
   var namesArr = exec(cmd_nameInstances).split('\n');
-  console.log(namesArr);
   var portsArr = exec(cmd_portInstances).split('\n');
-  console.log(portsArr);
   var list = [];
   for (var i = 0; i < namesArr.length; i++) {
     list.push({
@@ -33,7 +32,7 @@ function getRedisInstances(){
       port: parseInt(portsArr[i].match(/\d*->/gi)[0], 10)
     });
   };
-  console.log(list);
+  return list;
 }
 
 exports.new = function(req, res) {
