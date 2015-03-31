@@ -17,7 +17,7 @@ function spawnRedisInstance(name){
   }catch(err){
     throw err;
   }
-  var port = json_inspect["NetworkSettings"]["Ports"]["11211/tcp"][0].HostPort;
+  var port = json_inspect[0].NetworkSettings.Ports["11211/tcp"][0].HostPort;
   return port;
 };
 
