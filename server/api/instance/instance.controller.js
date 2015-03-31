@@ -12,12 +12,14 @@ function spawnRedisInstance(name){
   console.log(container_id);
   var cmd_inspect = docker_path + 'docker inspect ' + container_id;
   var json_inspect = exec(cmd_inspect);
-  console.log(json_inspect);
   try{
     json_inspect = JSON.parse(json_inspect);
   }catch(err){
     throw err;
   }
+  console.log(json_inspect);
+  console.log(json_inspect[0]);
+  console.log(json_inspect[0].NetworkSettings);
   var port = json_inspect[0].NetworkSettings.Ports["11211/tcp"][0].HostPort;
   return port;
 };
