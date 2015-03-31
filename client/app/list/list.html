@@ -6,5 +6,14 @@
   </div>
 </header>
 
-
+<table style="width:50%">
+  <tr>
+    <td>Name</td>
+    <td>Port</td> 
+  </tr>
+  <tr ng-repeat="instance in instances">
+    <td>{{instance.name}}</td>
+    <td>{{instance.port}}</td> 
+  </tr>
+</table>
 
