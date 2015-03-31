@@ -13,7 +13,7 @@ function spawnRedisInstance(name){
   console.log(json_inspect);
   try{
     json_inspect = JSON.parse(json_inspect);
-    console.log(json_inspect);
+    console.log(json_inspect.NetworkSettings);
   }catch(err){
     throw err;
   }
