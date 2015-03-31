@@ -20,15 +20,19 @@ function spawnRedisInstance(name){
 
 function getRedisInstances(){
   var docker_path = '/usr/bin/';
-  var cmd_listInstances = docker_path + 'docker ps | grep "redis"';
-  var listString = exec(cmd_listInstances).split('\n');
+  var cmd_nameInstances = docker_path + 'docker ps | grep "redis" | awk \'{print $11}\'';
+  var cmd_portInstances = docker_path + 'docker ps | grep "redis" | awk \'{print $10}\'';
+  var namesArr = exec(cmd_nameInstances).split('\n');
+  console.log(namesArr);
+  var portsArr = exec(cmd_portInstances).split('\n');
+  console.log(portsArr);
   var list = [];
-  listString.forEach(function(str){
+  for (var i = 0; i < namesArr.length; i++) {
     list.push({
-      name: str.match(/redis_\d\s/),
-      port: str.match(/:\d\->/)
+      name: namesArr[i],
+      port: portsArr[i]
     });
-  });
+  };
   console.log(list);
 }
 
