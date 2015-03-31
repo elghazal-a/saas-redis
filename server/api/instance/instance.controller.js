@@ -30,7 +30,7 @@ function getRedisInstances(){
   for (var i = 0; i < namesArr.length; i++) {
     list.push({
       name: namesArr[i],
-      port: portsArr[i]
+      port: parseInt(portsArr[i].match(/\d*->/gi)[0], 10)
     });
   };
   console.log(list);
