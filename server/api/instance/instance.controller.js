@@ -4,7 +4,7 @@ var _ = require('lodash');
 var exec = require('exec-sync');
 
 function spawnRedisInstance(name){
-  name = redis + '_' + name;
+  name = 'redis_' + name;
   var docker_path = '/usr/bin/';
   var cmd_runRedis = docker_path + 'docker run -d -P --name="' + name + '" redis';
   var container_id = exec(cmd_runRedis);
