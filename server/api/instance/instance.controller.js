@@ -21,7 +21,15 @@ function spawnRedisInstance(name){
 function getRedisInstances(){
   var docker_path = '/usr/bin/';
   var cmd_listInstances = docker_path + 'docker ps | grep "redis"';
-  console.log(exec(cmd_listInstances).split('\n'));
+  var listString = exec(cmd_listInstances).split('\n');
+  var list = [];
+  listString.forEach(function(str){
+    list.push({
+      name: str.match(/redis_\d\s/),
+      port: str.match(/:\d\->/)
+    });
+  });
+  console.log(list);
 }
 
 exports.new = function(req, res) {
