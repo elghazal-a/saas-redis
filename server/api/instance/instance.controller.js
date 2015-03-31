@@ -22,11 +22,10 @@ function spawnRedisInstance(name){
 exports.new = function(req, res) {
   console.log(req.body.name);
   var ip = "176.31.119.123";
-  // var port = spawnRedisInstance(req.body.name);
-  // console.log(port);
-  console.log(exec('docker images'));
+  var port = spawnRedisInstance(req.body.name);
+  console.log(port);
   res.json({
     ip: ip
-    // port: port
+    port: port
   });
 };
